@@ -36,24 +36,28 @@ function App() {
             <Table>
               <TableHead>
                 <TableRow sx={{ backgroundColor: 'main' }}>
-                  <TableCell width="40%" sx={tableHeaderFontStyle}>Description</TableCell>
+                  <TableCell width="5%" sx={tableHeaderFontStyle}>Sr #</TableCell>
+                  <TableCell width="35%" sx={tableHeaderFontStyle}>Description</TableCell>
                   <TableCell width="30%" sx={tableHeaderFontStyle}>GitHub Repo</TableCell>
                   <TableCell width="30%" sx={tableHeaderFontStyle}>Demo Link</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {rows.map((row, i) => (
-                  <TableRow key={i}>
+                  <TableRow key={i} sx={{backgroundColor: i%2 === 0 ? '#F2F2F2' : undefined}}>
+                    <TableCell sx={{ wordBreak: "break-word" }}>
+                      {i+1}
+                    </TableCell>
                     <TableCell sx={{ wordBreak: "break-word" }}>
                       {row.description}
                     </TableCell>
                     <TableCell>
-                      <Link href={row.repo} target="_blank" color="inherit">
+                      <Link href={row.repo} target="_blank">
                         {row.repo}
                       </Link>
                     </TableCell>
                     <TableCell>
-                      <Link href={row.demo} target="_blank" color="inherit">
+                      <Link href={row.demo} target="_blank">
                         {row.demo}
                       </Link>
                     </TableCell>
